@@ -1,0 +1,120 @@
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (b1)
+$ git branch -c planets
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (b1)
+$ git branch -a
+* b1
+  data1
+  master
+  planets
+  remotes/origin/b1
+  remotes/origin/master
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (b1)
+$ git checkout planets
+Switched to branch 'planets'
+Your branch is up to date with 'origin/b1'.
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ touch mercury.txt earth.txt saturn.txt jupiter.txt
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ ls
+'Devops - Shortcut.lnk'*   Test2.docx   jupiter.txt   saturn.txt   test4.txt
+ Test.docx                 earth.txt    mercury.txt   test3.txt    test5.txt
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git rm Test2.docx test4.txt test5.txt test3.txt Test.docx
+rm 'Test.docx'
+rm 'Test2.docx'
+rm 'test3.txt'
+rm 'test4.txt'
+rm 'test5.txt'
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ ls
+'Devops - Shortcut.lnk'*   earth.txt   jupiter.txt   mercury.txt   saturn.txt
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git rm 'Devops - Shortcut.lnk'
+rm 'Devops - Shortcut.lnk'
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ ls
+earth.txt  jupiter.txt  mercury.txt  saturn.txt
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git status
+On branch planets
+Your branch is up to date with 'origin/b1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    Devops - Shortcut.lnk
+        deleted:    Test.docx
+        deleted:    Test2.docx
+        deleted:    test3.txt
+        deleted:    test4.txt
+        deleted:    test5.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        earth.txt
+        jupiter.txt
+        mercury.txt
+        saturn.txt
+
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git add .
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git status
+On branch planets
+Your branch is up to date with 'origin/b1'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    Devops - Shortcut.lnk
+        deleted:    Test.docx
+        renamed:    Test2.docx -> earth.txt
+        renamed:    test4.txt -> jupiter.txt
+        renamed:    test5.txt -> mercury.txt
+        new file:   saturn.txt
+        deleted:    test3.txt
+
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git commit -c "Planets added"
+fatal: could not lookup commit Planets added
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git commit -m "Planets added"
+[planets bee95a5] Planets added
+ 7 files changed, 201 deletions(-)
+ delete mode 100644 Devops - Shortcut.lnk
+ delete mode 100644 Test.docx
+ rename Test2.docx => earth.txt (100%)
+ rename test4.txt => jupiter.txt (100%)
+ rename test5.txt => mercury.txt (100%)
+ create mode 100644 saturn.txt
+ delete mode 100644 test3.txt
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
+$ git push -u origin planets
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 266 bytes | 266.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'planets' on GitHub by visiting:
+remote:      https://github.com/vishalimoh/TestDevops/pull/new/planets
+remote:
+To https://github.com/vishalimoh/TestDevops.git
+ * [new branch]      planets -> planets
+branch 'planets' set up to track 'origin/planets'.
+
+Pravin@LAPTOP-L1RM78M4 MINGW64 /f/Devops (planets)
